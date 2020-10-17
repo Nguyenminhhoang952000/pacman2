@@ -35,14 +35,14 @@ class ReflexAgent(Agent):
         Just like in the previous project, getAction takes a GameState and returns
         some Directions.X for some X in the set {North, South, West, East, Stop}
         """
-        # Collect legal moves and successor states
+        # Thu thập các động thái hợp pháp và trạng thái kế thừa
         legalMoves = gameState.getLegalActions()
 
-        # Choose one of the best actions
+        #Chọn một trong những hành động tốt nhất
         scores = [self.evaluationFunction(gameState, action) for action in legalMoves]
         bestScore = max(scores)
         bestIndices = [index for index in range(len(scores)) if scores[index] == bestScore]
-        chosenIndex = random.choice(bestIndices) # Pick randomly among the best
+        chosenIndex = random.choice(bestIndices) # Chọn ngẫu nhiên trong số những thứ tốt nhất
 
         "Add more of your code here if you want to"
 
@@ -60,7 +60,7 @@ class ReflexAgent(Agent):
         Print out these variables to see what you're getting, then combine them
         to create a masterful evaluation function.
         """
-        # Useful information you can extract from a GameState (pacman.py)
+        # Thông tin hữu ích bạn có thể trích xuất từ ​​GameState (pacman.py)
         successorGameState = currentGameState.generatePacmanSuccessor(action)
         newPos = successorGameState.getPacmanPosition()
         newFood = successorGameState.getFood()
